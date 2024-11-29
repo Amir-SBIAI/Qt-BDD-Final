@@ -15,6 +15,7 @@
 
 
 
+
 Window::Window(QWidget *parent)
     : QWidget(parent)
 {
@@ -84,8 +85,13 @@ void Window::onConnectButtonClicked()
         newWindow->setWindowTitle("MENU DU COMPTE");
         newWindow->resize(400, 300);
 
+        soldeLabel = new QLabel;
+        soldeLabel->setAlignment(Qt::AlignCenter);
+        soldeLabel->setStyleSheet("font-size: 24px; font-weight: bold;");
+        updateSolde(); // Initialiser l'affichage du solde
+        QVBoxLayout *layout = new QVBoxLayout; layout->addWidget(soldeLabel); // Ajouter le label en haut de la fenêtre
         // Créer un layout pour la nouvelle fenêtre
-        QVBoxLayout *layout = new QVBoxLayout;
+
 
         QPushButton *CrediterButton = new QPushButton(tr("Crediter"));
         QPushButton *DebiterButton = new QPushButton(tr("Debiter"));
